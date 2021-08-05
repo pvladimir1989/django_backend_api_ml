@@ -49,31 +49,31 @@ services:
       - REDIS_REPLICATION_MODE=master
       - REDIS_HOST=redis
 
-#  celery:
-#    restart: always
-#    build: .
-#    volumes:
-#      - .:/usr/src/app
-##    command: celery -A app worker -l info
-##    environment:
-##      - DEBUG=1
-##      - DJANGO_ALLOWED_HOSTS=localhost 127.0.0.1 [::1]
-##      - CELERY_BROKER=redis://redis:6379/0
-##      - CELERY_BACKEND=redis://redis:6379/0
-##      - SECRET_KEY=${SECRET_KEY}
-##      - ACCOUNT_SID=${ACCOUNT_SID}
-##      - AUTH_TOKEN=${AUTH_TOKEN}
-##      - BACKEND_DB_ENGINE=${BACKEND_DB_ENGINE}
-##      - BACKEND_DB_NAME=postgres
-##      - BACKEND_DB_USER=postgres
-##      - BACKEND_DB_PASSWORD=123456
-##      - BACKEND_DB_HOST=${BACKEND_DB_HOST}
-##      - BACKEND_DB_PORT=${BACKEND_DB_PORT}
-##      - SENTRY_DSN=${SENTRY_DSN}
-#    depends_on:
-#      - web
-#      - redis
-#      - db
+  celery:
+    restart: always
+    build: ./django_backend
+    volumes:
+      - .:/usr/src/app
+#    command: celery -A app worker -l info
+#    environment:
+#      - DEBUG=1
+#      - DJANGO_ALLOWED_HOSTS=localhost 127.0.0.1 [::1]
+#      - CELERY_BROKER=redis://redis:6379/0
+#      - CELERY_BACKEND=redis://redis:6379/0
+#      - SECRET_KEY=${SECRET_KEY}
+#      - ACCOUNT_SID=${ACCOUNT_SID}
+#      - AUTH_TOKEN=${AUTH_TOKEN}
+#      - BACKEND_DB_ENGINE=${BACKEND_DB_ENGINE}
+#      - BACKEND_DB_NAME=postgres
+#      - BACKEND_DB_USER=postgres
+#      - BACKEND_DB_PASSWORD=123456
+#      - BACKEND_DB_HOST=${BACKEND_DB_HOST}
+#      - BACKEND_DB_PORT=${BACKEND_DB_PORT}
+#      - SENTRY_DSN=${SENTRY_DSN}
+    depends_on:
+      - web
+      - redis
+      - db
 
 #  celery-beat:
 #    build: .
@@ -84,17 +84,17 @@ services:
 #      - web
 #      - redis
 #
-#  nginx:
-#    build:
-#      context: ./nginx
-#      dockerfile: Dockerfile
-#
-#    ports:
-#      - "80:80"
-#      - "443:443"
-#
-#    depends_on:
-#      - web
+  nginx:
+    build:
+      context: ./nginx
+      dockerfile: Dockerfile
+
+    ports:
+      - "80:80"
+      - "443:443"
+
+    depends_on:
+      - web
 #
 #  elasticsearch:
 #    image: launcher.gcr.io/google/elasticsearch2
