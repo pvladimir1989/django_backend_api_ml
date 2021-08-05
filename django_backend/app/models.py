@@ -2,8 +2,9 @@ from django.db import models
 from django.contrib.auth.models import User
 
 
-class Features(models.Model):
+class ProfileFeatures(models.Model):
     features = models.ForeignKey("ProfileFeatures", on_delete=models.CASCADE, verbose_name='Список признаков')
+    profile=models.ForeignKey("Profile",on_delete=models.CASCADE,verbose_name="Профиль заемщика")
 
     class Meta:
         verbose_name = 'список признаков'
@@ -12,15 +13,13 @@ class Features(models.Model):
 
 class Profile(User):
     phone_number = models.CharField(max_length=12, verbose_name='Номер', blank=True, null=True)
-    profile_features = models.ForeignKey('ProfileFeatures', on_delete=models.CASCADE,
-                                         verbose_name="Фичи (признаки) заемщика")
 
     class Meta:
         verbose_name = "профиль"
         verbose_name_plural = "профили"
 
 
-class ProfileFeatures(models.Model):
+class Features(models.Model):
     loan_id = models.CharField("Идентификатор кредита", max_length=12)
 
     male = "male"
