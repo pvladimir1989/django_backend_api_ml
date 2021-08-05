@@ -2,6 +2,14 @@ from django.db import models
 from django.contrib.auth.models import User
 
 
+class Features(models.Model):
+    features = models.ForeignKey("ProfileFeatures", on_delete=models.CASCADE, verbose_name='Список признаков')
+
+    class Meta:
+        verbose_name = 'список признаков'
+        verbose_name_plural = 'списки признаков'
+
+
 class Profile(User):
     phone_number = models.CharField(max_length=12, verbose_name='Номер', blank=True, null=True)
     profile_features = models.ForeignKey('ProfileFeatures', on_delete=models.CASCADE,
