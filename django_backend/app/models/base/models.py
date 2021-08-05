@@ -4,7 +4,7 @@ from django.contrib.auth.models import User
 
 class ProfileFeatures(models.Model):
     features = models.ForeignKey("ProfileFeatures", on_delete=models.CASCADE, verbose_name='Список признаков')
-    profile=models.ForeignKey("Profile",on_delete=models.CASCADE,verbose_name="Профиль заемщика")
+    profile = models.ForeignKey("Profile", on_delete=models.CASCADE, verbose_name="Профиль заемщика")
 
     class Meta:
         verbose_name = 'список признаков'
@@ -20,6 +20,7 @@ class Profile(User):
 
 
 class Features(models.Model):
+    """ Признаки """
     loan_id = models.CharField("Идентификатор кредита", max_length=12)
 
     male = "male"
@@ -65,3 +66,19 @@ class Features(models.Model):
     class Meta:
         verbose_name = "признак"
         verbose_name_plural = "признаки"
+
+
+class MLModels(models.Model):
+    """ ML модели """
+    ml_model = models.BinaryField(verbose_name='ML модель')
+    model_name = models.CharField(verbose_name='Название модели', max_length=20)
+
+
+class Subscriber(models.Model):
+    """ Подписчик"""
+
+    email = models.EmailField()
+    date = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self) -> str:
+        return self.email
