@@ -7,6 +7,10 @@ class Profile(User):
     profile_features = models.ForeignKey('ProfileFeatures', on_delete=models.CASCADE,
                                          verbose_name="Фичи (признаки) заемщика")
 
+    class Meta:
+        verbose_name = "профиль"
+        verbose_name_plural = "профили"
+
 
 class ProfileFeatures(models.Model):
     loan_id = models.CharField("Идентификатор кредита", max_length=12)
@@ -52,8 +56,5 @@ class ProfileFeatures(models.Model):
     loan_status = models.CharField(max_length=2, choices=married_yes_no_choice)
 
     class Meta:
-        verbose_name="признак"
-        verbose_name_plural="признаки"
-
-
-
+        verbose_name = "признак"
+        verbose_name_plural = "признаки"
