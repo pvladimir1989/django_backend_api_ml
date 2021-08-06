@@ -1,11 +1,11 @@
 # from django.http import HttpRequest, HttpResponse
 # from django.shortcuts import render
-# from django.conf import settings
+# # from django.conf import settings
 # from django_filters.rest_framework import DjangoFilterBackend
 # from rest_framework.viewsets import ModelViewSet
 #
-# from app.models import Book
-# from app.serializers import BooksSerializer
+# # from app.models import Book
+# # from app.serializers import BooksSerializer
 #
 #
 # def index(request: HttpRequest) -> HttpResponse:
