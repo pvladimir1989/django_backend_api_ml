@@ -1,33 +1,42 @@
 from django.db import models
 from django.contrib.auth.models import User
 
+MALE = "male"
+FEMALE = "female"
+MALE_OR_FEMALE = [(MALE, "male"), (FEMALE, "female")]
 
-male = "male"
-female = "female"
-male_or_female = [(male, "male"), (female, "female")]
+YES = "Yes"
+NO = "No"
+MARRIED_YES_NO_CHOICE = [(YES, "yes"), (NO, "no")]
+
+URBAN = "urban"
+RURAL = "rural"
+PROPERTY_AREA_URBAN_RURAL = [(URBAN, "urban"), (RURAL, "rural")]
+
+Y = "Y"
+N = "N"
+LOAN_STATUS_Y_N = [(Y, "Y"), (N, "N")]
+
+SELF_EMPLOYED_YES_NO = [(YES, "Yes"), (NO, "No")]
+
+GRADUATE = "Graduate"
+NOT_GRADUATE = "Not Graduate"
+EDUCATION_GRADUATE_NOT_GRADUATE = [(GRADUATE, "Graduate"), (NOT_GRADUATE, "Not Graduate")]
 
 
 class BaseUser(User):
     """ Признаки """
     loan_id = models.CharField("Идентификатор кредита", max_length=12)
 
+    gender = models.CharField(max_length=2, choices=MALE_OR_FEMALE)
 
-    gender = models.CharField(max_length=2, choices=male_or_female)
-
-    yes = "Yes"
-    no = "No"
-    married_yes_no_choice = [(yes, "yes"), (no, "no")]
-    married = models.CharField(max_length=2, choices=married_yes_no_choice)
+    married = models.CharField(max_length=2, choices=MARRIED_YES_NO_CHOICE)
 
     dependents = models.BooleanField("Есть ли иждивенцы", default=False)
 
-    graduate = "Graduate"
-    not_graduate = "Not Graduate"
-    education_graduate_not_graduate = [(graduate, "Graduate"), (not_graduate, "Not Graduate")]
-    education = models.CharField(max_length=2, choices=education_graduate_not_graduate)
+    education = models.CharField(max_length=2, choices=EDUCATION_GRADUATE_NOT_GRADUATE)
 
-    self_employed_yes_no = [(yes, "Yes"), (no, "No")]
-    self_employed = models.CharField(max_length=2, choices=self_employed_yes_no)
+    self_employed = models.CharField(max_length=2, choices=SELF_EMPLOYED_YES_NO)
 
     applicant_income = models.PositiveIntegerField(verbose_name="Доход", default=0, max_length=10)
 
@@ -39,15 +48,9 @@ class BaseUser(User):
 
     credit_history = models.BooleanField(verbose_name="Кредитная история", default=False)
 
-    urban = "urban"
-    rural = "rural"
-    property_area_urban_rural = [(urban, "urban"), (rural, "rural")]
-    property_area = models.CharField(max_length=2, choices=property_area_urban_rural)
+    property_area = models.CharField(max_length=2, choices=PROPERTY_AREA_URBAN_RURAL)
 
-    y = "Y"
-    n = "N"
-    loan_status_y_n = [(y, "Y"), (n, "N")]
-    loan_status = models.CharField(max_length=2, choices=married_yes_no_choice)
+    loan_status = models.CharField(max_length=2, choices=MARRIED_YES_NO_CHOICE)
 
     class Meta:
         verbose_name = "профиль"
