@@ -1,5 +1,5 @@
 from .base_user import BaseUserAdmin
-from .history_of_user_actions import *
-from .ml_models import *
-from .subscriber import *
+from .history_of_user_actions import HistoryOfUserActionsAdmin
+from .ml_models import MlModelsAdmin
+from .subscriber import SubscriberAdmin
 

@@ -52,6 +52,7 @@ class BaseUser(User):
 
     loan_status = models.CharField(max_length=2, choices=MARRIED_YES_NO_CHOICE)
 
+
     class Meta:
-        verbose_name = "профиль"
-        verbose_name_plural = "профили"
+        verbose_name = "Профиль"
+        verbose_name_plural = "Профили"
