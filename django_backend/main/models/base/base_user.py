@@ -28,29 +28,29 @@ class BaseUser(User):
     """ Признаки """
     loan_id = models.CharField("Идентификатор кредита", max_length=12)
 
-    gender = models.CharField(max_length=2, choices=MALE_OR_FEMALE)
+    gender = models.CharField(max_length=100, choices=MALE_OR_FEMALE)
 
-    married = models.CharField(max_length=2, choices=MARRIED_YES_NO_CHOICE)
+    married = models.CharField(max_length=100, choices=MARRIED_YES_NO_CHOICE)
 
     dependents = models.BooleanField("Есть ли иждивенцы", default=False)
 
-    education = models.CharField(max_length=2, choices=EDUCATION_GRADUATE_NOT_GRADUATE)
+    education = models.CharField(max_length=100, choices=EDUCATION_GRADUATE_NOT_GRADUATE)
 
-    self_employed = models.CharField(max_length=2, choices=SELF_EMPLOYED_YES_NO)
+    self_employed = models.CharField(max_length=100, choices=SELF_EMPLOYED_YES_NO)
 
-    applicant_income = models.PositiveIntegerField(verbose_name="Доход", default=0, max_length=10)
+    applicant_income = models.PositiveIntegerField(verbose_name="Доход", default=0)
 
-    coapplicant_income = models.PositiveIntegerField(verbose_name="Доход поручителя", default=0, max_length=10)
+    coapplicant_income = models.PositiveIntegerField(verbose_name="Доход поручителя", default=0)
 
-    loan_amount = models.PositiveIntegerField(verbose_name="Размер кредита", default=0, max_length=10)
+    loan_amount = models.PositiveIntegerField(verbose_name="Размер кредита", default=0)
 
-    loan_amount_term = models.IntegerField(verbose_name="Срок займа в днях", max_length=5)
+    loan_amount_term = models.IntegerField(verbose_name="Срок займа в днях")
 
     credit_history = models.BooleanField(verbose_name="Кредитная история", default=False)
 
-    property_area = models.CharField(max_length=2, choices=PROPERTY_AREA_URBAN_RURAL)
+    property_area = models.CharField(max_length=100, choices=PROPERTY_AREA_URBAN_RURAL)
 
-    loan_status = models.CharField(max_length=2, choices=MARRIED_YES_NO_CHOICE)
+    loan_status = models.CharField(max_length=100, choices=MARRIED_YES_NO_CHOICE)
 
 
     class Meta:

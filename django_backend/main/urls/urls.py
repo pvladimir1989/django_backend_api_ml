@@ -1,18 +1,18 @@
 from django.urls import path
-from rest_framework.routers import SimpleRouter
-
-from app.views import index, BooksViewSet
+# from rest_framework.routers import SimpleRouter
+#
+# from main.views import index, BooksViewSet
 from django.contrib import admin
 
-router = SimpleRouter()
+# router = SimpleRouter()
 
-router.register(r'book', BooksViewSet)
+# router.register(r'book', BooksViewSet)
 
 urlpatterns = [
 
-    path('', index, name='index'),
+    # path('', index, name='index'),
     path('admin/', admin.site.urls),
 
 ]
 
-urlpatterns += router.urls
+# urlpatterns += router.urls

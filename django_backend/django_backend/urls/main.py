@@ -1,8 +1,7 @@
-from django.urls import include, path, re_path
+from django.urls import include, path
 
-from app import urls
+from main import urls
 
 urlpatterns = [
     path('', include(urls)),
-    # re_path(r'^', include(urls)),
 ]
