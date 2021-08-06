@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from app.models.base import BaseUser
+from main.models.base import BaseUser
 
 
 # class BaseUserAdmin(admin.ModelAdmin):

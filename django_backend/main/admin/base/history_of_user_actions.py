@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from app.models.base import HistoryOfUserActions
+from main.models.base import HistoryOfUserActions
 
 
 class HistoryOfUserActionsAdmin(admin.ModelAdmin):
