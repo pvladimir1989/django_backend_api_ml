@@ -1,6 +1,6 @@
-from django.apps import AppConfig
+from django.apps import AppConfig as BaseAppConfig
 
 
-class MainConfig(AppConfig):
+class MainConfig(BaseAppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
     name = 'main'
