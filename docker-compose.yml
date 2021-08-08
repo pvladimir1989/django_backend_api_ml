@@ -16,14 +16,20 @@ services:
     command: >
       sh -c "python3 manage.py migrate &&
              python3 manage.py runserver 0.0.0.0:8000"
-#    volumes:
-#      - .:/code
+    volumes:
+      - ./django_backend/:/code
     ports:
       - "8000:8000"
     environment:
-      - POSTGRES_DB=${BACKEND_DB_NAME}
-      - POSTGRES_USER=${BACKEND_DB_USER}
-      - POSTGRES_PASSWORD=${BACKEND_DB_PASSWORD}
+#      - POSTGRES_DB=${BACKEND_DB_NAME}
+#      - POSTGRES_USER=${BACKEND_DB_USER}
+#      - POSTGRES_PASSWORD=${BACKEND_DB_PASSWORD}
+      - BACKEND_DB_ENGINE=${BACKEND_DB_ENGINE}
+      - BACKEND_DB_NAME=${BACKEND_DB_NAME}
+      - BACKEND_DB_USER=${BACKEND_DB_USER}
+      - BACKEND_DB_PASSWORD=${BACKEND_DB_PASSWORD}
+      - BACKEND_DB_HOST=${BACKEND_DB_HOST}
+      - BACKEND_DB_PORT=${BACKEND_DB_PORT}
 #    env_file:
 #      - .env
 #      - BACKEND_DB_HOST=postgresql

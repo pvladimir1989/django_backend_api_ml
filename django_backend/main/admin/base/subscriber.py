@@ -1,5 +1,6 @@
 from django.contrib import admin
 
+from main.models.base import Subscriber
 
-class HistoryOfUserActionsAdmin(admin.ModelAdmin):
+class SubscriberAdmin(admin.ModelAdmin):
     list_display = ('email', 'confirmed_email', 'date')

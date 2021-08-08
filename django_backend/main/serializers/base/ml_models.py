@@ -1,6 +1,6 @@
 from rest_framework.serializers import ModelSerializer
 
-from app.models import MLModels
+from main.models import MLModels
 
 
 class BaseUserSerializer(ModelSerializer):

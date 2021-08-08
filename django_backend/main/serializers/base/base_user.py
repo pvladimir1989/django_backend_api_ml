@@ -1,6 +1,6 @@
 from rest_framework.serializers import ModelSerializer
 
-from app.models import BaseUser
+from main.models import BaseUser
 
 
 class BaseUserSerializer(ModelSerializer):

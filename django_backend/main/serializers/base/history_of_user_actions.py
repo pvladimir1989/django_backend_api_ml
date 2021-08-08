@@ -1,6 +1,6 @@
 from rest_framework.serializers import ModelSerializer
 
-from app.models import HistoryOfUserActions
+from main.models import HistoryOfUserActions
 
 
 class HistoryOfUserActionsSerializer(ModelSerializer):
