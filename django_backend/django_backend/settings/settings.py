@@ -36,10 +36,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'main',
-    # 'app'
     'django_celery_beat',
-    # 'rest_framework',
-    # 'django_filters',
+    'rest_framework',
+    'django_filters',
 ]
 
 MIDDLEWARE = [

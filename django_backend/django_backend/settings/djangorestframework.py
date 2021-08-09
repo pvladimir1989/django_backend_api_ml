@@ -11,6 +11,15 @@ REST_FRAMEWORK = {
 }
 
 # REST_FRAMEWORK = {
+#     'DEFAULT_RENDERER_CLASSES': (
+#         'rest_framework.renderers.JSONRenderer',
+#     ),
+#     'DEFAULT_PARSER_CLASSES': (
+#         'rest_framework.parsers.JSONParser',
+#     )
+# }
+
+# REST_FRAMEWORK = {
 #     # 'DEFAULT_PAGINATION_CLASS': 'beer_app.rest_custom.CustomPagination',
 #     'PAGE_SIZE': 100,
 #     'DEFAULT_FILTER_BACKENDS': [
