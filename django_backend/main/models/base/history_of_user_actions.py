@@ -12,3 +12,7 @@ class HistoryOfUserActions(models.Model):
     task_id = models.AutoField(primary_key=True)
     result_task = models.BooleanField(verbose_name="Ответ celery")
     date_of_request = models.DateTimeField(verbose_name="Дата создания", auto_now_add=True)
+
+    class Meta:
+        verbose_name = "История транзацкий"
+        verbose_name_plural = "Истории транзацкий"
