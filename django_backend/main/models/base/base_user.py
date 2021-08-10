@@ -32,21 +32,21 @@ class BaseUser(User):
 
     married = models.CharField(max_length=100, choices=MARRIED_YES_NO_CHOICE)
 
-    dependents = models.BooleanField("Есть ли иждивенцы", default=False)
+    dependents = models.CharField("Количество иждивенцов", max_length=12)
 
     education = models.CharField(max_length=100, choices=EDUCATION_GRADUATE_NOT_GRADUATE)
 
     self_employed = models.CharField(max_length=100, choices=SELF_EMPLOYED_YES_NO)
 
-    applicant_income = models.PositiveIntegerField(verbose_name="Доход", default=0)
+    applicant_income = models.FloatField(verbose_name="Доход", default=0)
 
-    coapplicant_income = models.PositiveIntegerField(verbose_name="Доход поручителя", default=0)
+    coapplicant_income = models.FloatField(verbose_name="Доход поручителя", default=0)
 
-    loan_amount = models.PositiveIntegerField(verbose_name="Размер кредита", default=0)
+    loan_amount = models.FloatField(verbose_name="Размер кредита", default=0)
 
-    loan_amount_term = models.IntegerField(verbose_name="Срок займа в днях")
+    loan_amount_term = models.FloatField(verbose_name="Срок займа в днях")
 
-    credit_history = models.BooleanField(verbose_name="Кредитная история", default=False)
+    credit_history = models.CharField(verbose_name="Кредитная история", max_length=12)
 
     property_area = models.CharField(max_length=100, choices=PROPERTY_AREA_URBAN_RURAL)
 
