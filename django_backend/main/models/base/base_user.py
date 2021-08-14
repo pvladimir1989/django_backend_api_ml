@@ -58,17 +58,17 @@ class BaseUser(models.Model):
         verbose_name = "Профиль"
         verbose_name_plural = "Профили"
 
-    def save(self):
-        result =  super.save()
-        if result:
-            raw = self.get_prepare_for_ml_data()
-
-            ml.feed(raw)
-
-        return  result
-
-    def get_prepare_for_ml_data(self):
-        return {
-            'loan_status': LOAN_STATUS_Y_N.index(self.loan_status),
-            'loan_amount' : self.loan_amount,
-        }
+    # def save(self):
+    #     result =  super.save()
+    #     if result:
+    #         raw = self.get_prepare_for_ml_data()
+    #
+    #         ml.feed(raw)
+    #
+    #     return  result
+    #
+    # def get_prepare_for_ml_data(self):
+    #     return {
+    #         'loan_status': LOAN_STATUS_Y_N.index(self.loan_status),
+    #         'loan_amount' : self.loan_amount,
+    #     }
