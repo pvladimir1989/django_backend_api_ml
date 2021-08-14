@@ -1,3 +1,5 @@
+import os
+
 REST_FRAMEWORK = {
     # 'DEFAULT_FILTER_BACKENDS': ['django_filters.rest_framework.DjangoFilterBackend'],
     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
@@ -9,7 +11,6 @@ REST_FRAMEWORK = {
         'rest_framework.filters.OrderingFilter',
     ],
 
-
 }
 
 AUTHENTICATION_BACKENDS = (
@@ -19,8 +20,12 @@ AUTHENTICATION_BACKENDS = (
 )
 
 SOCIAL_AUTH_JSONFIELD_ENABLED = True
-SOCIAL_AUTH_GITHUB_KEY = '1f1813a018ab53ae814f'
-SOCIAL_AUTH_GITHUB_SECRET = '4b5a0a5828c81332bf28be34f27c20aac5ed1c73'
+
+# SOCIAL_AUTH_GITHUB_KEY = "1f1813a018ab53ae814f"
+# SOCIAL_AUTH_GITHUB_SECRET = "b54e58d76031f3b9ecbf148cfa333f64d1a23f86"
+
+SOCIAL_AUTH_GITHUB_KEY = os.environ.get('SOCIAL_AUTH_GITHUB_KEY', default='foo')
+SOCIAL_AUTH_GITHUB_SECRET = os.environ.get('SOCIAL_AUTH_GITHUB_SECRET', default='foo')
 
 # REST_FRAMEWORK = {
 #     'DEFAULT_RENDERER_CLASSES': (
