@@ -8,7 +8,19 @@ REST_FRAMEWORK = {
         'rest_framework.filters.SearchFilter',
         'rest_framework.filters.OrderingFilter',
     ],
+
+
 }
+
+AUTHENTICATION_BACKENDS = (
+    'social_core.backends.google.GoogleOAuth2',
+    'social_core.backends.github.GithubOAuth2',
+    'django.contrib.auth.backends.ModelBackend',
+)
+
+SOCIAL_AUTH_JSONFIELD_ENABLED = True
+SOCIAL_AUTH_GITHUB_KEY = '1f1813a018ab53ae814f'
+SOCIAL_AUTH_GITHUB_SECRET = '4b5a0a5828c81332bf28be34f27c20aac5ed1c73'
 
 # REST_FRAMEWORK = {
 #     'DEFAULT_RENDERER_CLASSES': (
