@@ -15,3 +15,7 @@ class BaseUserViewSet(ModelViewSet):
     filter_fields = ['loan_amount']
     search_fields = ['education', 'property_area']
     ordering_fields = ['loan_amount', 'loan_amount_term']
+
+    def perform_create(self, serializer):
+        serializer.validated_data['user'] = self.request.user
+        serializer.save()

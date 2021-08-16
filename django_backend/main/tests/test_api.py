@@ -76,6 +76,7 @@ class BaseUserApiTestCase(APITestCase):
         # self.assertEqual(serializer_data, response.data)
         self.assertEqual(4, BaseUser.objects.all().count())
         self.assertEqual(data['gender'], "Male")
+        print(BaseUser.objects.last().user)
 
     def test_update(self):
         url = reverse('baseuser-detail', args=(self.user1.id,))
