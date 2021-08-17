@@ -17,19 +17,19 @@ class BaseUserApiTestCase(APITestCase):
                                              self_employed="No", applicant_income="5849",
                                              coapplicant_income="0.0", loan_amount="1.0", loan_amount_term="360.0",
                                              credit_history="1.0", property_area="Urban",
-                                             loan_status="Y"
+                                             loan_status="Y", user=self.user,
                                              )
         self.user2 = BaseUser.objects.create(gender="Male", married="No", dependents="1", education="Graduate",
                                              self_employed="No", applicant_income="5349",
                                              coapplicant_income="0.0", loan_amount="1.0", loan_amount_term="360.0",
                                              credit_history="1.0", property_area="Urban",
-                                             loan_status="Y"
+                                             loan_status="Y", user=self.user,
                                              )
         self.user3 = BaseUser.objects.create(gender="Male", married="No", dependents="1", education="Graduate",
                                              self_employed="No", applicant_income="5349",
                                              coapplicant_income="0.0", loan_amount="1.0", loan_amount_term="360.0",
                                              credit_history="1.0", property_area="Urban",
-                                             loan_status="Y"
+                                             loan_status="Y", user=self.user,
                                              )
 
     def test_get(self):
